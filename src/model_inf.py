@@ -92,7 +92,7 @@ def transcribe_audio(frames: list, sample_rate: int = 16000, model = None) -> st
         audio_np = np.pad(audio_np, (0, pad_amount))
         
     # 4️⃣ Normalize amplitude (important)
-    audio_np = audio_np / (np.max(np.abs(audio_np)) + 1e-9)
+    # audio_np = audio_np / (np.max(np.abs(audio_np)) + 1e-9)
     
     audio_duration = len(audio_np)/16000
     info_2 = str(audio_np.dtype) + ", " + str(audio_np.shape) + ", " + str(audio_np.min()) + ", " + str(audio_np.max()) + "Duration :"  + str(audio_duration) + " seconds"
