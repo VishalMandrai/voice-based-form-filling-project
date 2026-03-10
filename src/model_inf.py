@@ -68,7 +68,7 @@ def transcribe_audio(frames: list, sample_rate: int = 16000, model = None) -> st
     
     audio_np = np.concatenate(frames, axis=0)   ## enable this line when taking real-time input from mic
         
-    audio_np = frames.astype(np.float32) 
+    audio_np = audio_np.astype(np.float32) 
     audio_np = audio_np/ 32768.0
     #audio_np = frames.astype(np.float32) / 32768.0
 
