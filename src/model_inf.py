@@ -60,13 +60,13 @@ def transcribe_audio(frames: list, sample_rate: int = 16000, model = None) -> st
         return "⚠️ Whisper not installed. Run: pip install openai-whisper"
 
     # Flatten & normalise to float32 in [-1, 1]
-    sample_rate, frames = wavfile.read("./src/sample_audio.wav")
+    #sample_rate, frames = wavfile.read("./src/sample_audio.wav")
     
     print("After loading - Sample Rate and Frames Info")
     print(f"Frames: {frames.shape}, sample rate: {sample_rate}")
     print("Frame Info: ", type(frames), len(frames), type(frames[0]), frames[0].shape, frames[0].dtype)
     
-    ##audio_np = np.concatenate(frames, axis=0)   ## enable this line when taking real-time input from mic
+    audio_np = np.concatenate(frames, axis=0)   ## enable this line when taking real-time input from mic
         
     audio_np = frames.astype(np.float32) 
     audio_np = audio_np/ 32768.0
